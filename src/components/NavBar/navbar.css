@@ -1,0 +1,31 @@
+.shopmate {
+    height: auto;
+    width: 5rem;
+    transition: 0.7s;
+}
+
+.shopmate:hover {
+    transform: scale(1.09);
+}
+
+.navbar {
+    background-color: #0098EC;
+}
+
+.nav-link {
+    color: #000000;
+    font-size: 25px;
+}
+
+.nav-item {
+    margin-right: 40px;
+}
+
+.dropdown-item {
+    color: #000000;
+}
+
+.dropdown-item:hover {
+    color: #000000;
+    background-color: #0098EC;
+}
