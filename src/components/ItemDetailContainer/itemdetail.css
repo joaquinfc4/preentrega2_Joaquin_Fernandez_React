@@ -1,0 +1,30 @@
+.itemDetail {
+    display: flex;
+    border: 2px solid #FFD15C;
+    background-color: #FFF8E5; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.itemDetailImg {
+    width: 400px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.itemDetailName {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.itemDetailDescription {
+    max-width: 500px;
+}
+
+.itemDetailPrice {
+    font-size: 1.2rem;
+    font-weight: bold; 
+    color: #FFD15C; 
+}

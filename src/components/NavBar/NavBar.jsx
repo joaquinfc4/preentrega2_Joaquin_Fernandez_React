@@ -1,14 +1,14 @@
-import './navbar.css'
 import logo from '../../assets/logo.jpg'
 import CartWidget from './CartWidget'
-
+import { Link, NavLink } from 'react-router-dom'
+import './navbar.css'
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a className="navbar-brand ms-4" href="./index.html">
+                <Link className="navbar-brand ms-4" to="/">
                     <img className="logo rounded shopmate" src={logo} alt="market_logo" />
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -17,7 +17,7 @@ const NavBar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="./index.html">Home</a>
+                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -25,9 +25,9 @@ const NavBar = () => {
                                 Categorías
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="">Remeras</a></li>
-                                <li><a className="dropdown-item" href="">Pantalones</a></li>
-                                <li><a className="dropdown-item" href="">Calzado</a></li>
+                                <Link className="dropdown-item" to="/category/remeras">Remeras</Link>
+                                <Link className="dropdown-item" to="/category/buzos">Buzos</Link>
+                                <Link className="dropdown-item" to="category/calzado">Calzado</Link>
                             </ul>
                         </li>
                         <CartWidget />

@@ -9,7 +9,7 @@
 }
 
 .navbar {
-    background-color: #0098EC;
+    background-color: #FFD15C;
 }
 
 .nav-link {
@@ -27,5 +27,5 @@
 
 .dropdown-item:hover {
     color: #000000;
-    background-color: #0098EC;
+    background-color: #FFD15C;
 }
