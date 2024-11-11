@@ -30,9 +30,10 @@ const Cart = () => {
             ))}
             <p>Precio total: {totalPrice()}</p>
             <button onClick={deleteCart}>Borrar carrito</button>
-            <Link to="/checkout">Terminar mi compra</Link>
+            <Link to="/checkout" className="checkout-button">Terminar mi compra</Link>
         </div>
     );
 };
 
 export default Cart;
+
