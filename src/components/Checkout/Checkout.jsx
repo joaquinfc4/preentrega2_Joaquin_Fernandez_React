@@ -8,7 +8,7 @@ import db from '../../db/db';
 import { Link } from 'react-router-dom';
 import validateForm from '../../utils/validateForm';
 import { toast } from 'react-toastify';
-import './Checkout.css';
+import './checkout.css';
 
 const Checkout = () => {
     const [dataForm, setDataForm] = useState({
