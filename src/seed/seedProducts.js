@@ -1,9 +1,12 @@
+import db from "../db/db.js"
+import { addDoc, collection } from "firebase/firestore"
+
 const products = [
     {
         id:"AB5678",
         name: "Remera negra",
         description: "Esta remera lisa de color negro es una prenda versátil y cómoda para cualquier ocasión. Su diseño minimalista la convierte en un básico imprescindible en tu guardarropa",
-        stock: 10,
+        stock: 1,
         price: 350,
         image: "/public/img/remera-negra.webp",
         category: "remeras"
@@ -54,12 +57,14 @@ const products = [
     },
 ]
 
-const getProducts = () => {
-    return new Promise((resolve, reject)=> {
-        setTimeout( ()=> {
-            resolve(products)
-        }, 2000)
+const seedProducts = () => {
+    const productsRef = collection(db, "products")
+    products.map(( { id, ...dataProduct } )=> {
+        addDoc(productsRef, dataProduct)
     })
+
+    console.log("productos subidos")
+    return   
 }
 
-export { getProducts }
+seedProducts()

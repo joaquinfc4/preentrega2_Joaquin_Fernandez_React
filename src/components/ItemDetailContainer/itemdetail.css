@@ -1,8 +1,9 @@
 .itemDetail {
     display: flex;
-    border: 2px solid #FFD15C;
-    background-color: #FFF8E5; 
+    align-items: flex-start;
     padding: 20px;
+    background-color: #FFF8E5;
+    border: 2px solid #FFD15C;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -25,6 +26,38 @@
 
 .itemDetailPrice {
     font-size: 1.2rem;
-    font-weight: bold; 
-    color: #FFD15C; 
+    font-weight: bold;
+    color: #FFD15C;
 }
+
+.itemDetailContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itemDetailLink,
+.itemDetail .counter-container {
+    align-self: flex-start;
+}
+
+.itemDetailLink {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFF;
+    background-color: #FFD15C;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.itemDetailLink:hover {
+    background-color: #FFA500;
+}
+
+.low-stock-message {
+    color: red;
+    font-weight: bold;
+}
+

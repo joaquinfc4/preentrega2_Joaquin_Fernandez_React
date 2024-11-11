@@ -1,4 +1,14 @@
-.cartLogo {
+.cart-logo {
     height: auto;
     width: 2rem;
+}
+
+.empty-cart {
+    height: auto;
+    width: 2rem;
+    opacity: 0.4;
+}
+
+.nav-item {
+    text-decoration: none;
 }

@@ -1,39 +1,68 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../data/data"
+/* import { getProducts } from "../../data/data" */
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
+import Loading from "../Loading/Loading"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import db from "../../db/db"
 import "./itemlistcontainer.css"
+
 
 
 
 const ItemListContainer = ({ saludo }) => {
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
 
-    useEffect(() => {
-        getProducts()
-            .then((dataProducts) => {
-                if (idCategory) {
-                    const filterProducts = dataProducts.filter( (product)=> product.category === idCategory )
-                    setProducts(filterProducts)
-                }else {
-                    setProducts(dataProducts)
-                }
+    const getProducts = () => {
+        const productsRef = collection(db, "products")
+        getDocs(productsRef)
+            .then((dataDb) => {
+                const productsDb = dataDb.docs.map((productDb) => {
+                    return { id: productDb.id, ...productDb.data() }
+                })
+
+
+                setProducts(productsDb)
 
             })
-            .catch((error) => {
-                console.error(error)
-            })
             .finally(() => {
-                console.log("finalizó la promesa")
+                setLoading(false)
             })
+    }
+
+    const getProductsByCategory = () => {
+        const productsRef = collection(db, "products")
+        const queryCategories = query( productsRef, where("category", "==", idCategory) )
+        getDocs(queryCategories)
+        .then((dataDb)=> {
+            const productsDb = dataDb.docs.map((productDb)=>{
+                return { id: productDb.id, ...productDb.data() }
+            })
+            setProducts(productsDb)
+        })
+    }
+
+    useEffect(() => {
+        if (idCategory) {
+            getProductsByCategory()
+        }else {
+            getProducts()
+        }
     }, [idCategory])
 
 
     return (
         <div>
             <h2>{saludo}</h2>
-            <ItemList products={products} />
+            {
+                loading === true ? (
+                    <Loading />
+                ) : (
+                    <ItemList products={products} />
+                )
+            }
         </div>
 
     )
